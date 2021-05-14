@@ -1,13 +1,13 @@
 <annotation>
-	<folder></folder>
+	<folder>test</folder>
 	<filename>005302_jpg.rf.d378ca349a23d7c1099acdd1617eeeed.jpg</filename>
-	<path>005302_jpg.rf.d378ca349a23d7c1099acdd1617eeeed.jpg</path>
+	<path>C:\Users\CalvinDong\source\repos\42028-Assignment-2\HardHats\Images\test\test\005302_jpg.rf.d378ca349a23d7c1099acdd1617eeeed.jpg</path>
 	<source>
-		<database>roboflow.ai</database>
+		<database>Unknown</database>
 	</source>
 	<size>
-		<width>455</width>
-		<height>600</height>
+		<width>224</width>
+		<height>224</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -16,12 +16,11 @@
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
-		<occluded>0</occluded>
 		<bndbox>
-			<xmin>51</xmin>
-			<xmax>264</xmax>
-			<ymin>64</ymin>
-			<ymax>266</ymax>
+			<xmin>32</xmin>
+			<ymin>29</ymin>
+			<xmax>125</xmax>
+			<ymax>134</ymax>
 		</bndbox>
 	</object>
 </annotation>
