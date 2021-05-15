@@ -29,20 +29,42 @@ def xml_to_csv(path):
     classes_names = []
     xml_list = []
     for xml_file in glob.glob(path + "/*.xml"):
+        features_list =[]
+        bad = False
         tree = ET.parse(xml_file)
         root = tree.getroot()
         for member in root.findall("object"):
             classes_names.append(member[0].text)
+            if int(member[5][0].text) < 0 :
+               print("bad file: " + root.find("filename").text + f"\nbounding box less than width of image {member[5][0].text} < " + root.find("size")[0].text)
+               bad = True
+            if int(member[5][1].text) >  int(root.find("size")[0].text) :
+               print("bad file: " + root.find("filename").text + f"\nbounding box more than width of image {member[5][1].text} > " + root.find("size")[0].text)
+               bad = True
+            if int(member[5][2].text) < 0 :
+              print("bad file: " + root.find("filename").text + f"\nbounding box less than height of image {member[5][2].text} < " + root.find("size")[1].text)
+              bad = True
+            if int(member[5][3].text) > int(root.find("size")[1].text) :
+              print("bad file: " + root.find("filename").text + f"\nbounding box more than height of image {member[5][3].text} > " + root.find("size")[1].text)
+              bad = True
+            if (bad):
+              break
+
             value = (
                 root.find("filename").text,
                 int(root.find("size")[0].text),
                 int(root.find("size")[1].text),
                 member[0].text,
                 int(member[5][0].text),
-                int(member[5][1].text),
                 int(member[5][2].text),
+                int(member[5][1].text),
                 int(member[5][3].text),
             )
+            features_list.append(value)
+        if (bad):
+          continue
+        else:
+          for value in features_list:
             xml_list.append(value)
     column_name = [
         "filename",
