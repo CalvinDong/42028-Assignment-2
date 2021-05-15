@@ -56,8 +56,8 @@ def xml_to_csv(path):
                 int(root.find("size")[1].text),
                 member[0].text,
                 int(member[5][0].text),
-                int(member[5][1].text),
                 int(member[5][2].text),
+                int(member[5][1].text),
                 int(member[5][3].text),
             )
             features_list.append(value)
